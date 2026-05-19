@@ -1,0 +1,35 @@
+---
+layout: base.njk
+title: Blog jurídico-operativo
+description: Artículos de CIAJ sobre cobranza, siniestros, fiscalías, multas, contratos, Carta Porte, grúas y prevención de riesgos en el transporte.
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Blog jurídico-operativo</div>
+    <h1>Recursos legales para transporte, logística y comercio exterior.</h1>
+    <p>Artículos prácticos sobre cobranza especializada, siniestros, fiscalías, multas, contratos, Carta Porte, grúas, validación de clientes y prevención de riesgos operativos.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="blog-grid">
+      {% for post in collections.blog | reverse %}
+        <article class="card">
+          <a href="{{ post.url }}">
+            <div class="card-img">{% if post.data.image %}<img src="{{ post.data.image }}" alt="{{ post.data.title }}">{% endif %}</div>
+            <div class="card-body">
+              <span class="category">{{ post.data.category }}</span>
+              <h2>{{ post.data.title }}</h2>
+              <p>{{ post.data.excerpt }}</p>
+              <span class="read-more">Leer artículo</span>
+            </div>
+          </a>
+        </article>
+      {% else %}
+        <article class="card"><div class="card-img"></div><div class="card-body"><span class="category">CIAJ</span><h2>Próximamente publicaremos artículos.</h2><p>Este espacio concentrará recursos legales para transporte, logística y comercio exterior.</p></div></article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

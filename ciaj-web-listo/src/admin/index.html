@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin CIAJ</title>
+</head>
+<body>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user && (
+          window.location.hash.includes("invite_token") ||
+          window.location.hash.includes("recovery_token") ||
+          window.location.hash.includes("confirmation_token")
+        )) {
+          window.netlifyIdentity.open();
+        }
+      });
+      window.netlifyIdentity.on("login", function() {
+        document.location.href = "/admin/";
+      });
+      window.netlifyIdentity.on("logout", function() {
+        document.location.href = "/admin/";
+      });
+    }
+  </script>
+</body>
+</html>

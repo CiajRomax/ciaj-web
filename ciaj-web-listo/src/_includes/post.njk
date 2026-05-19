@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+
+<section class="section">
+  <div class="container">
+    <article class="article">
+      <div class="article-meta">{{ category }} · {{ date | readableDate }}</div>
+      <h1>{{ title }}</h1>
+      <p style="color:#666; font-size:1.08rem;">{{ excerpt }}</p>
+      {% if image %}
+        <img class="featured" src="{{ image }}" alt="{{ title }}">
+      {% endif %}
+      <div class="article-content">
+        {{ content | safe }}
+      </div>
+      <p style="margin-top:34px;"><a class="read-more" href="/blog/">← Volver al blog</a></p>
+    </article>
+  </div>
+</section>
